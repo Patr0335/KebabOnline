@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head th:replace="fragments/head.html(pageTitle = 'Home - KebabOnline&#127791;')"></head>
+<header th:replace="fragments/header.html(currentPage = 'Home')">
+</header>
+
+<body>
+<h1>Kebab Online</h1>
+<h3>Kebab er godt</h3>
+
+<p th:if="${isUserLoggedIn == true}">Welcome Back</p>
+<p th:if="${isUserLoggedIn == false}">Please Log in</p>
+
+<!--<buttton th:if="${isUserLoggedIn == true}">Order Food</buttton>-->
+<!--<button th:if="${isUserLoggedIn == false}">Log in to order food</button>-->
+
+<td th:switch="${userType}">
+    <span th:case="'free'"> Consider Paying</span>
+    <span th:case="'paying'"> Consider upgrading to premium </span>
+    <span th:case="'premium'"> We hope you are happy with your account</span>
+</td>
+
+<!--<a href="about">about us</a>-->
+
+
+<!--<p th:text="${emailProvider}"></p>-->
+<!--<td th:switch="${emailProvider}">-->
+<!--    <span th:case="'gmail'"> Good meail provider you have</span>-->
+<!--    <span th:case="'hotmail'"> Consider switching to gmail</span>-->
+<!--</td>-->
+
+<!--<a href="=@{/about}">product</a>-->
+
+</body>
+<footer th:replace="fragments/footer.html"></footer>
+</html>
